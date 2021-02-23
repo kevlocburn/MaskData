@@ -15,8 +15,8 @@ namespace MaskCodeData
              000008888855555     
              55555111116666600000
              11111     37383          
-             mmmmmaaaaa11111bbbbb  
-             
+             mmmmmaaaaa11111bbbbb
+             66666111116666611111
              */
             string fileName = @"c:\test\sampleText.txt";
             using (StreamWriter outputFile = new StreamWriter(@"C:\test\testresult.txt", true))
@@ -40,22 +40,21 @@ namespace MaskCodeData
 
                     //and so on  
 
-                    //if the code matches one of the strings in the array, replace the string with #####
-                    if (partTwoArray.Any(partTwo.Contains))
+                        //if the code matches one of the strings in the array, replace the string with ##### and write the line
+                     if ((partTwoArray.Any(partTwo.Contains)) && (partThreeArray.Any(partThree.Contains)))
+                    {
+                        outputFile.WriteLine("{0}{1}{2}{3}", partOne, replacePartTwo, replacePartThree, partFour);
+                    }
+                    else if (partTwoArray.Any(partTwo.Contains))
                     {
                         outputFile.WriteLine("{0}{1}{2}{3}", partOne, replacePartTwo, partThree, partFour);
                     }
-                    //if the code matches one of the strings in the array, replace the string with #####
                     else if (partThreeArray.Any(partThree.Contains))
                     {
                         outputFile.WriteLine("{0}{1}{2}{3}", partOne, partTwo, replacePartThree, partFour);
                     }
-                    //if the code matches both of the strings in the array, replace the string with #####
-                    else if ((partTwoArray.Any(partTwo.Contains)) && (partThreeArray.Any(partThree.Contains)))
-                    {
-                        outputFile.WriteLine("{0}{1}{2}{3}", partOne, replacePartTwo, replacePartThree, partFour);
-                    }
-                    //write the line as it is
+                   
+
                     else
                     {
                         outputFile.WriteLine("{0}{1}{2}{3}", partOne, partTwo, partThree, partFour);
@@ -63,15 +62,16 @@ namespace MaskCodeData
                 }
 
 
-              //output data
-              /*
+            //output data
+            /*
                     97678#####99999uuuuu
                     0000088888#####     
-                    55555#####6666600000
+                    55555##########00000
                     11111     37383     
                     mmmmmaaaaa11111bbbbb
-             
-             */
+                    66666##########11111
+
+           */
         }
     }
 }
