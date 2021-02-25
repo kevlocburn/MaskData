@@ -39,7 +39,7 @@ namespace MaskCodeData
              */
             List<Rule> rules = new List<Rule>();
             // rules.Add(new Rule(5, 5, new List<string>() { "11111", "22222", "33333" }));
-            rules.Add(new Rule(5, 5, ICD10.codes));
+            rules.Add(new Rule(5, 5, Data.codes));
             rules.Add(new Rule(10, 5, new string[] { "44444", "55555", "66666" }));
 
             string fileName = @"c:\test\sampleText.txt";
@@ -53,7 +53,7 @@ namespace MaskCodeData
                     {
                         var mask = "";
                         for (var i = 0; i < rule.length; i++) 
-                            mask += "#";
+                         mask += "#";
 
                         var chunk = modifiedLine.Substring(rule.index, rule.length);
                         if (rule.codes.Contains(chunk))

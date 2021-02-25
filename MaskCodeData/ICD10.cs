@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MaskCodeData
 {
-    public class ICD10
+    public class Data
     {
         //string[] weekDays = new string[] { "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" };
 
